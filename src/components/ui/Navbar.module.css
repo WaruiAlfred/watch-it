@@ -1,5 +1,7 @@
-.nav{
+.nav {
   /* background: #fff; */
-  height: 20rem;
-  padding: .3rem 1rem;
+  color: white;
+  height: 7rem;
+  padding: 0.3rem 1rem;
+  z-index: 1;
 }

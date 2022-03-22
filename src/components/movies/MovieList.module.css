@@ -1,11 +1,7 @@
 .movies-list {
   display: flex;
-
+  justify-content: center;
   flex-wrap: wrap;
-}
-
-.movies-list li {
-  list-style: none;
 }
 
 .movies-list__image {
