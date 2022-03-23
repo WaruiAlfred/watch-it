@@ -1,7 +1,9 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-const TrialCarousel = (props) => {
+import classes from './MoviesCarousel.module.css'
+
+const MoviesCarousel = (props) => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -19,29 +21,34 @@ const TrialCarousel = (props) => {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
+
+  // const carouselClasses = `${classes.carousel} ${props.className}`;
   return (
     <Carousel
-      swipeable={false}
+      swipeable={true}
       draggable={false}
       showDots={true}
       responsive={responsive}
       ssr={true} // means to render carousel on server-side.
-      infinite={false}
+      infinite={true}
       autoPlay={false}
       // autoPlay={props.deviceType !== "mobile" ? true : false}
-      // autoPlaySpeed={1000}
+      autoPlaySpeed={3000}
       keyBoardControl={true}
       // customTransition="all .5"
       transitionDuration={500}
-      containerClass="carousel-container"
+      containerClass={classes["react-multi-carousel-list"]}
       removeArrowOnDeviceType={["tablet", "mobile"]}
       // deviceType={props.deviceType}
-      dotListClass="custom-dot-list-style"
-      itemClass="carousel-item-padding-40-px"
+      dotListClass={classes["react-multi-carousel-dot-list"]}
+      itemClass={classes['react-multi-carousel-item']}
+      slidesToSlide={1}
+      centerMode={true}
+      className={props.className}
     >
       {props.children}
     </Carousel>
   );
 };
 
-export default TrialCarousel;
+export default MoviesCarousel;
