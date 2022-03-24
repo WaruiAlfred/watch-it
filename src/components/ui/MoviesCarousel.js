@@ -1,7 +1,7 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-import classes from './MoviesCarousel.module.css'
+import classes from "./MoviesCarousel.module.css";
 
 const MoviesCarousel = (props) => {
   const responsive = {
@@ -25,7 +25,7 @@ const MoviesCarousel = (props) => {
   // const carouselClasses = `${classes.carousel} ${props.className}`;
   return (
     <Carousel
-      swipeable={true}
+      swipeable={false}
       draggable={false}
       showDots={true}
       responsive={responsive}
@@ -35,15 +35,16 @@ const MoviesCarousel = (props) => {
       // autoPlay={props.deviceType !== "mobile" ? true : false}
       autoPlaySpeed={3000}
       keyBoardControl={true}
-      // customTransition="all .5"
+      customTransition="transform 300ms ease-in-out"
       transitionDuration={500}
       containerClass={classes["react-multi-carousel-list"]}
       removeArrowOnDeviceType={["tablet", "mobile"]}
       // deviceType={props.deviceType}
       dotListClass={classes["react-multi-carousel-dot-list"]}
-      itemClass={classes['react-multi-carousel-item']}
+      itemClass={classes["react-multi-carousel-item"]}
       slidesToSlide={1}
       centerMode={true}
+      shouldResetAutoplay={true}
       className={props.className}
     >
       {props.children}

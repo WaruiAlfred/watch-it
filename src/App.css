@@ -1,10 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Moo+Lah+Lah&display=swap');
+
 .app {
   background-image: url("./assets/bg-image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   height: 40rem;
+  margin-bottom: 4rem;
   position: relative;
+}
+
+.app h1 {
+  color: #fff;
+  margin: 8rem 35% ;
+  font-family: 'Moo Lah Lah', cursive;
+  font-size: 7rem;
 }
 
 .overlay {
@@ -15,6 +25,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgb(166, 168, 175);
-  opacity: .2;
+  background: blue;
+  /* background: rgb(166, 168, 175); */
+  opacity: 0.2;
 }

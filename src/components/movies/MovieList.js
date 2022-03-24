@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import useHttp from "../../hooks/use-http";
-import Card from "../ui/Card";
 import MoviesCarousel from "../ui/MoviesCarousel";
+import MovieItems from "./MovieItems";
 
 import classes from "./MovieList.module.css";
 
@@ -10,33 +10,45 @@ const MovieList = (props) => {
 
   const { data, sendRequest } = useHttp();
 
-  const { movieCategory } = props;
+  const { movieCategory, categoryTitle } = props;
 
   useEffect(() => {
     sendRequest(movieCategory);
   }, [sendRequest, movieCategory]);
 
   useEffect(() => {
-    if (data) {
+    if (data && Array.isArray(data)) {
       setMovies(data);
     }
   }, [data]);
 
-  if (!movies) return <p>None found</p>;
+  if (!movies)
+    return (
+      <h4 style={{ fontWeight: "bold", textAlign: "center", color: "#fff" }}>
+        No movies found under that category title!!! - {categoryTitle}
+      </h4>
+    );
 
   return (
-    <MoviesCarousel className={classes["movies-list"]}>
-      {movies.map((movie) => (
-        <Card key={movie.id} className={classes.card}>
-          <img
-            className={classes["movies-list__image"]}
-            src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-            alt={movie.title}
+    <Fragment>
+      <div className={classes["category-title"]}>
+        <div></div>
+        <h3>{`${categoryTitle} movies`}</h3>
+        <div className={classes["category-title__last-div"]}></div>
+      </div>
+      <MoviesCarousel>
+        {movies.map((movie) => (
+          <MovieItems
+            key={movie.id}
+            movieDetails={{
+              poster_path: movie.poster_path,
+              title: movie.title,
+              release_date: movie.release_date,
+            }}
           />
-          <h3>{movie.title}</h3>
-        </Card>
-      ))}
-    </MoviesCarousel>
+        ))}
+      </MoviesCarousel>
+    </Fragment>
   );
 };
 

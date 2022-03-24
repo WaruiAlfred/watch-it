@@ -1,18 +1,17 @@
-import Latest from "./Latest";
-import NowPlaying from "./NowPlaying";
-import Popular from "./Popular";
-import TopRated from "./TopRated";
-import Upcoming from "./Upcoming";
+import Latest from "./categories/Latest";
+import NowPlaying from "./categories/NowPlaying";
+import Popular from "./categories/Popular";
+import TopRated from "./categories/TopRated";
+import Upcoming from "./categories/Upcoming";
 
 const AllMovies = () => {
   return (
     <div>
-      <h1>All Movies</h1>
-      <Latest />
       <NowPlaying />
       <Popular />
       <TopRated />
       <Upcoming />
+      <Latest />
     </div>
   );
 };
