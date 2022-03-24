@@ -1,0 +1,21 @@
+.movies-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2rem;
+}
+
+.title,
+p {
+  font-family: "Bungee Inline", cursive;
+  text-align: center;
+  font-size: 3rem;
+  color: #fff;
+}
+
+@media screen and (max-width: 500px) {
+  .movies-list {
+    display: flex;
+    margin:0 12%;
+  }
+}

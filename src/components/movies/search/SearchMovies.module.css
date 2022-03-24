@@ -1,0 +1,30 @@
+.search-form {
+  width: 70rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.search-form input,
+.search-form button {
+  height: 5rem;
+  border-radius: 3rem;
+  padding: 0.2rem 1.4rem;
+  font-size: 1.7rem;
+}
+
+.search-form input {
+  width: 50rem;
+  margin-right: 2rem;
+}
+
+.search-form button {
+  width: 15rem;
+  font-weight: bold;
+  outline: .3rem solid blue;
+  color:  #fff;
+  background: rgb(49, 69, 243);
+}
+
+.search-form button:hover{
+  cursor: pointer;
+}
