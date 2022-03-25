@@ -40,11 +40,7 @@ const MovieList = (props) => {
         {movies.map((movie) => (
           <MovieItems
             key={movie.id}
-            movieDetails={{
-              poster_path: movie.poster_path,
-              title: movie.title,
-              release_date: movie.release_date,
-            }}
+            movieDetails={movie}
           />
         ))}
       </MoviesCarousel>

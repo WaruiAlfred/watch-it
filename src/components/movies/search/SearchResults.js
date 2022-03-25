@@ -13,7 +13,7 @@ const SearchResults = () => {
   // };
   // <button onClick={changeSuccessHandler}>Back to Main Menu</button>
 
-  if (!movies) return <p>No movies found</p>;
+  if (!movies) return <p className={classes.title}>No movies found</p>;
 
   return (
     <Fragment>
@@ -22,11 +22,7 @@ const SearchResults = () => {
         {movies.map((movie) => (
           <MovieItems
             key={movie.id}
-            movieDetails={{
-              poster_path: movie.poster_path,
-              title: movie.title,
-              release_date: movie.release_date,
-            }}
+            movieDetails={movie}
           />
         ))}
       </div>

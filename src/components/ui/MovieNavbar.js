@@ -10,8 +10,7 @@ const MovieNavbar = (props) => {
     <Navbar
       collapseOnSelect
       expand="lg"
-      bg="blue"
-      variant="blue"
+      variant="dark"
       className={classes.navbar}
     >
       <Container>

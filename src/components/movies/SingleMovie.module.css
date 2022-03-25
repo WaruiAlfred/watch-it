@@ -1,0 +1,39 @@
+.single-movie {
+  padding: 1.2rem;
+  margin: 1.2rem;
+}
+
+.single-movie__image {
+  width: 35rem;
+  height: 100%;
+}
+
+.single-movie__error-message {
+  font-family: "Bungee Inline", cursive;
+  text-align: center;
+  font-size: 3rem;
+  color: rgb(233, 73, 73);
+}
+
+.single-movie__description {
+  height: 100%;
+}
+
+.single-movie__description h4 {
+  text-align: left;
+  font-weight: bold;
+}
+
+.single-movie__description__holder {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.single-movie__description__holder p {
+  font-size: 1.4rem;
+}
+
+.single-movie__reviews {
+  text-align: center;
+}

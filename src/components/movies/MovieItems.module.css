@@ -7,6 +7,7 @@
 .card:hover {
   transform: scale(1.1) translateY(-3rem);
   transition: 500ms;
+  cursor: pointer;
 }
 
 .card h3,
