@@ -26,17 +26,8 @@ const useHttp = () => {
   const [httpState, dispatch] = useReducer(httpReducer, initialState);
 
   const sendRequest = useCallback(
-    (category = "", method = "GET", movieName = "") => {
+    (category = "", method = "GET", movieName = "", movieId = 0) => {
       if (method === "GET") {
-        /*
-        let url;
-        if (description.name === "collect") {
-          url = `https://api.themoviedb.org/3/movie/${category}?api_key=${API_KEY}`;
-        }
-        if (description.name === "search") {
-          url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${description.movieName}&page=1`;
-        }*/
-
         dispatch({ type: "SEND" });
         axios
           .get(
@@ -49,19 +40,40 @@ const useHttp = () => {
             dispatch({ type: "ERROR", errorMessage: error.message });
           });
       }
-      if (method === "SEARCH") {
+
+      if (method === "GET_REVIEWS") {
         dispatch({ type: "SEND" });
         axios
           .get(
-            `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}&page=1`
+            `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
           )
           .then((response) => {
-            dispatch({ type: "RESPONSE", resData: response.data });
+            dispatch({ type: "RESPONSE", resData: response.data.results });
           })
           .catch((error) => {
             dispatch({ type: "ERROR", errorMessage: error.message });
           });
       }
+
+      let url;
+      if (method === "SEARCH") {
+        url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}&page=1`;
+      }
+      if (method === "GET_DETAILS") {
+        url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
+      }
+      // if (method === "GET_REVIEWS") {
+      //   url = `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`;
+      // }
+      dispatch({ type: "SEND" });
+      axios
+        .get(url)
+        .then((response) => {
+          dispatch({ type: "RESPONSE", resData: response.data });
+        })
+        .catch((error) => {
+          dispatch({ type: "ERROR", errorMessage: error.message });
+        });
     },
     []
   );
