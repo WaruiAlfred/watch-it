@@ -27,4 +27,20 @@
 
 .search-form button:hover{
   cursor: pointer;
+  transform: scale(1.1);
+}
+
+@media screen  and (max-width:320px){
+  .search-form{
+    width: fit-content;
+    padding: 1rem;
+  }
+
+  .search-form input {
+    width: 18rem;
+  }
+  
+  .search-form button {
+    width: 10rem;
+  }
 }

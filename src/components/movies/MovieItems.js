@@ -7,10 +7,12 @@ import SingleMovieContext from "../../context/single-movie-context";
 const MovieItems = (props) => {
   const { poster_path, title, release_date, id } = props.movieDetails;
   const { data, sendRequest } = useHttp();
-  const { onAddMovieDetails } = useContext(SingleMovieContext);
+  const { onAddMovieDetails, onToggleVisibility } =
+    useContext(SingleMovieContext);
 
   const fetchSingleMovieDetailsHandler = () => {
     sendRequest("", "GET_DETAILS", "", id);
+    onToggleVisibility(id);
   };
 
   useEffect(() => {

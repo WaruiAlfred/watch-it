@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import SingleMovieContext from "../../context/single-movie-context";
 import Latest from "./categories/Latest";
 import NowPlaying from "./categories/NowPlaying";
 import Popular from "./categories/Popular";
@@ -6,9 +8,11 @@ import Upcoming from "./categories/Upcoming";
 import SingleMovie from "./SingleMovie";
 
 const AllMovies = () => {
+  const { visible } = useContext(SingleMovieContext);
+
   return (
     <div>
-      <SingleMovie />
+      {!visible && <SingleMovie />}
       <NowPlaying />
       <Popular />
       <TopRated />

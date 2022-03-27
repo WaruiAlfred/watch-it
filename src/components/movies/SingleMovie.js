@@ -1,33 +1,34 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import SingleMovieContext from "../../context/single-movie-context";
 import Card from "../ui/Card";
-import useHttp from "../../hooks/use-http";
+// import useHttp from "../../hooks/use-http";
 
 import classes from "./SingleMovie.module.css";
 
 const SingleMovie = () => {
-  const { sendRequest, data } = useHttp();
+  // const { sendRequest, data } = useHttp();
 
-  const { movieDetails, onAddMovieReviews, movieReviews } =
-    useContext(SingleMovieContext);
+  const { movieDetails } = useContext(SingleMovieContext);
 
+  /*
   useEffect(() => {
     if (Array.isArray(data)) {
       onAddMovieReviews(data);
       console.log(data);
     }
   }, [data, onAddMovieReviews]);
+  */
 
   if (!movieDetails)
     return (
       <p className={classes["single-movie__error-message"]}>
-        No movie selected
+        Select movie to view details
       </p>
     );
 
   const {
-    id,
+    // id,
     title,
     poster_path,
     release_date,
@@ -53,6 +54,9 @@ const SingleMovie = () => {
   const prodCountries = listGenerator(production_countries);
   const prodCompanies = listGenerator(production_companies);
 
+  /*TODO:Implement loading reviews */
+
+  /*
   const onLoadReviews = () => {
     //Collect reviews from API
     if (id) {
@@ -77,6 +81,13 @@ const SingleMovie = () => {
       </div>
     ));
   }
+
+  <Col className={classes["single-movie__reviews"]}>
+    <h3>Reviews</h3>
+    <button onClick={onLoadReviews}>Load Reviews</button>
+    {reviewsContent}
+  </Col>;
+  */
 
   return (
     <Card className={classes["single-movie"]}>
@@ -124,11 +135,6 @@ const SingleMovie = () => {
                 <p>{overview}</p>
               </div>
             </div>
-          </Col>
-          <Col className={classes["single-movie__reviews"]}>
-            <h3>Reviews</h3>
-            <button onClick={onLoadReviews}>Load Reviews</button>
-            {reviewsContent}
           </Col>
         </Row>
       </Container>

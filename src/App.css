@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Moo+Lah+Lah&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Moo+Lah+Lah&display=swap");
 
 .app {
   background-image: url("./assets/bg-image.jpg");
@@ -12,8 +12,8 @@
 
 .app h1 {
   color: #fff;
-  margin: 8rem 35% ;
-  font-family: 'Moo Lah Lah', cursive;
+  margin: 8rem 35%;
+  font-family: "Moo Lah Lah", cursive;
   font-size: 7rem;
 }
 
@@ -28,4 +28,16 @@
   background: blue;
   /* background: rgb(166, 168, 175); */
   opacity: 0.2;
+}
+
+@media screen and (max-width: 320px) {
+  .app{
+    width: fit-content;
+  }
+
+  .app h1 {
+    margin: 8rem 25%;
+    font-family: "Moo Lah Lah", cursive;
+    font-size: 3rem;
+  }
 }

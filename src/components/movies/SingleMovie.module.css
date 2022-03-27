@@ -1,22 +1,24 @@
 .single-movie {
   padding: 1.2rem;
   margin: 1.2rem;
+  height: 56rem;
 }
 
 .single-movie__image {
-  width: 35rem;
-  height: 100%;
+  width: 36rem;
 }
 
 .single-movie__error-message {
   font-family: "Bungee Inline", cursive;
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
   color: rgb(233, 73, 73);
 }
 
-.single-movie__description {
-  height: 100%;
+.single-movie__description,
+.single-movie__reviews {
+  height: 50rem;
+  overflow-y: scroll;
 }
 
 .single-movie__description h4 {
@@ -34,6 +36,37 @@
   font-size: 1.4rem;
 }
 
+@media screen and (max-width: 320px) {
+  .single-movie {
+    width: fit-content;
+    height: 100%;
+  }
+
+  .single-movie__image {
+    width: 26rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/*
 .single-movie__reviews {
   text-align: center;
 }
+
+.single-movie__reviews button{
+  width: 15rem;
+  font-weight: bold;
+  outline: .1rem solid blue;
+  background: transparent;
+  height: 3rem;
+  border-radius: 3rem;
+  padding: 0.2rem 1.4rem;
+  font-size: 1.5rem;
+  color: blue;
+  border: none;
+}
+.single-movie__reviews button:hover{
+  background: blue;
+  color: #fff;
+}
+*/

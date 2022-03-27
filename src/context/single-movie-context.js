@@ -2,8 +2,10 @@ import { createContext, useState } from "react";
 
 const initialState = {
   movieDetails: null,
-  movieReviews: null,
-  onAddMovieReviews: (reviews) => {},
+  visible: false,
+  // movieReviews: null,
+  // onAddMovieReviews: (reviews) => {},
+  onToggleVisibility: (id) => {},
   onAddMovieDetails: (movie) => {},
 };
 
@@ -11,20 +13,29 @@ const SingleMovieContext = createContext(initialState);
 
 export const SingleMovieContextProvider = (props) => {
   const [movieData, setMovieData] = useState(null);
-  const [movieReviews, setMovieReviews] = useState(null);
+  const [visibility, setVisibility] = useState(false);
+  // const [movieReviews, setMovieReviews] = useState(null);
 
   const addMovieDetailsHandler = (movie) => {
     setMovieData(movie);
   };
 
-  const addMovieReviewsHandler = (reviews) => {
-    setMovieReviews(reviews);
+  // const addMovieReviewsHandler = (reviews) => {
+  //   setMovieReviews(reviews);
+  // };
+
+  const toggleVisibilityHandler = (id) => {
+    if (id === movieData?.id) {
+      setVisibility((prevState) => !prevState);
+    }
   };
 
   const contextValue = {
     movieDetails: movieData,
-    movieReviews,
-    onAddMovieReviews: addMovieReviewsHandler,
+    visible: visibility,
+    // movieReviews,
+    // onAddMovieReviews: addMovieReviewsHandler,
+    onToggleVisibility: toggleVisibilityHandler,
     onAddMovieDetails: addMovieDetailsHandler,
   };
 
